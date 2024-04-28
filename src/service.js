@@ -1,7 +1,7 @@
 // axiosInstance.js
 import axios from 'axios';
 
-const baseURL = 'https://sea-turtle-app-jgpa3.ondigitalocean.app/'; // replace with your API base URL
+const baseURL = 'https://sea-turtle-app-jgpa3.ondigitalocean.app/api/v1'; // replace with your API base URL
 
 const Axios = axios.create({
   baseURL,
