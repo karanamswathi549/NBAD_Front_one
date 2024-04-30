@@ -93,13 +93,12 @@ export const AuthProvider = ({ children }) => {
   const refreshToken = async () => {
     // Implement refresh token logic here
     //console.log(user,user.refreshToken)
-    const response = await Axios.post("/auth/getAcessToken", {
+    const response = await Axios.post("/auth/getAccessToken", {
       refreshToken: localStorage.getItem("REFRESH_TOKEN") || user.refreshToken,
     });
-    const { authToken, refreshToken } = response.data;
-    Axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`; // for all requests
-    user.authToken = authToken;
-    user.refreshToken = refreshToken;
+    const { token } = response.data;
+    Axios.defaults.headers.common["Authorization"] = `Bearer ${token}`; // for all requests
+    user.authToken = token;
 
     toast.success("Refreshed token");
     setUser(user);
